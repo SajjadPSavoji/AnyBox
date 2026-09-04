@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AnyBox | AnyBox: Efficient Zero-Shot 9DoF Pose Estimation of Boxes for Robotic Manipulation</title>
+<meta name="description" content="Zero-shot 9DoF pose estimation of boxes for robotic manipulation">
+<meta property="og:title" content="AnyBox: Efficient Zero-Shot 9DoF Pose Estimation of Boxes for Robotic Manipulation">
+<meta property="og:description" content="Zero-shot 9DoF pose estimation of boxes for robotic manipulation">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sajjadpsavoji.github.io/AnyBox/">
+<meta name="twitter:card" content="summary_large_image">
+<!-- TODO: add docs/static/teaser.png (1200x630) for social previews, then uncomment:
+<meta property="og:image" content="https://sajjadpsavoji.github.io/AnyBox/static/teaser.png"> -->
+<meta name="citation_title" content="AnyBox: Efficient Zero-Shot 9DoF Pose Estimation of Boxes for Robotic Manipulation">
+<meta name="citation_author" content="Yintao Ma">
+<meta name="citation_author" content="Sajjad Pakdamansavoji">
+<meta name="citation_author" content="Charles Eret">
+<meta name="citation_author" content="Rui Heng Yang">
+<meta name="citation_author" content="Xuan Zhao">
+<meta name="citation_author" content="Yingxue Zhang">
+<meta name="citation_author" content="Tongtong Cao">
+<meta name="citation_author" content="Amir Rasouli">
+<meta name="citation_arxiv_id" content="2511.15884">
+<style>
+:root{
+  --bg:#ffffff; --fg:#1a1a1a; --muted:#6b7280; --rule:#e5e7eb;
+  --accent:#1d4ed8; --chip:#f3f4f6; --chipfg:#374151; --code:#f6f8fa;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme=light]){
+  --bg:#0f1115; --fg:#e8eaed; --muted:#9aa3af; --rule:#242832;
+  --accent:#7aa2f7; --chip:#1a1e27; --chipfg:#c3c9d4; --code:#161a22;
+}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);
+  font:16px/1.65 -apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+header{padding:72px 0 40px;text-align:center;border-bottom:1px solid var(--rule)}
+.venue{display:inline-block;font-size:13px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;margin-bottom:18px}
+h1{font-size:clamp(28px,4.4vw,42px);line-height:1.18;margin:0 0 10px;letter-spacing:-.02em;font-weight:700}
+.sub{color:var(--muted);font-size:18px;margin:0 0 28px}
+.authors{font-size:16.5px;margin:0 0 6px}
+.authors a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--rule)}
+.authors .me{font-weight:700}
+.affil{color:var(--muted);font-size:14.5px;margin:6px 0 0}
+.btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:30px 0 4px}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:9px 17px;border-radius:999px;
+  background:var(--chip);color:var(--chipfg);text-decoration:none;font-size:14.5px;font-weight:500;
+  border:1px solid transparent;transition:.15s}
+.btn:hover{border-color:var(--accent);color:var(--accent)}
+main{padding:8px 0 40px}
+section{padding:40px 0;border-bottom:1px solid var(--rule)}
+section:last-of-type{border-bottom:0}
+h2{font-size:13px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  font-weight:600;margin:0 0 18px}
+p{margin:0 0 16px}
+.abstract{font-size:17px;line-height:1.75}
+figure{margin:0}
+.ph{border:1px dashed var(--rule);border-radius:10px;padding:52px 24px;text-align:center;
+  color:var(--muted);font-size:14.5px;background:var(--chip)}
+figcaption{color:var(--muted);font-size:14px;margin-top:10px;text-align:center}
+pre{background:var(--code);border:1px solid var(--rule);border-radius:10px;padding:16px;
+  overflow-x:auto;font-size:13.5px;line-height:1.5}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+footer{padding:32px 0 60px;color:var(--muted);font-size:14px;text-align:center}
+footer a{color:var(--muted)}
+a{color:var(--accent)}
+@media(max-width:600px){header{padding:48px 0 32px}section{padding:32px 0}}
+</style>
+</head><body>
+<header><div class="wrap">
+  <div class="venue">ECCV 2026 R6D Workshop</div>
+  <h1>AnyBox</h1>
+  <p class="sub">Efficient Zero-Shot 9DoF Pose Estimation of Boxes for Robotic Manipulation</p>
+  <p class="authors">Yintao Ma, <span class="me">Sajjad Pakdamansavoji</span>, Charles Eret, Rui Heng Yang, Xuan Zhao, Yingxue Zhang, Tongtong Cao, Amir Rasouli</p>
+  <p class="affil"><!-- TODO: replace with real affiliations -->Affiliations to be added</p>
+  <div class="btns">
+    <a class="btn" href="https://arxiv.org/abs/2511.15884">Paper</a>
+    <a class="btn" href="https://arxiv.org/pdf/2511.15884">PDF</a>
+    <a class="btn" href="https://huggingface.co/papers/2511.15884">Hugging Face</a>
+    <a class="btn" href="https://github.com/SajjadPSavoji/AnyBox">Code</a>
+    <a class="btn" href="#bibtex">BibTeX</a>
+  </div>
+</div></header>
+<main class="wrap">
+  <section>
+    <h2>Abstract</h2>
+    <p class="abstract">Recovering the 9D pose of objects, both their 6D pose and 3D dimensions, under clutter and occlusion is a core requirement for warehouse automation, logistics, and manufacturing. Model-based methods are accurate but assume an instance-specific CAD model for every object, which is costly to maintain as inventories change. Model-free and category-level methods relax this assumption, yet they remain vulnerable to the symmetry, weak texture, and heavy occlusion that characterize stacked storage boxes, and they ignore the strong structural priors such scenes provide. We present AnyBox, an efficient zero-shot framework that exploits the geometric regularity of boxes to jointly recover pose and dimensions from a single RGB-D observation. Starting from a canonical category template, AnyBox alternates between pose and scale estimation, using the discrepancy between the reprojected template and the observed mask to drive a binary search over box dimensions. Two lightweight components make this practical: a depth-consistency filter that rejects the implausible hypotheses induced by box symmetry, and an early-stopping rule that replaces the remaining search with a single closed-form update. On public benchmarks and an in-house warehouse dataset, AnyBox improves detection AP by up to 36 points, more than doubling the previous best, and approaches instance-level pipelines that have access to ground-truth CAD models. These gains transfer downstream, raising success by 28% on a cluttered robotic box-shelving task.</p>
+  </section>
+  <section>
+    <h2>Method</h2>
+    <figure>
+      <div class="ph">Method figure &mdash; add <code>docs/static/method.png</code></div>
+      <figcaption>Overview of the approach.</figcaption>
+    </figure>
+  </section>
+  <section>
+    <h2>Results</h2>
+    <figure>
+      <div class="ph">Qualitative results &mdash; add <code>docs/static/results.png</code></div>
+      <figcaption>Qualitative comparison against baselines.</figcaption>
+    </figure>
+  </section>
+  <section id="bibtex">
+    <h2>BibTeX</h2>
+    <pre><code>@article{ma2025anybox,
+  title   = {AnyBox: Efficient Zero-Shot 9DoF Pose Estimation of Boxes for Robotic Manipulation},
+  author  = {Yintao Ma and Sajjad Pakdamansavoji and Charles Eret and Rui Heng Yang and Xuan Zhao and Yingxue Zhang and Tongtong Cao and Amir Rasouli},
+  journal = {arXiv preprint arXiv:2511.15884},
+  year    = {2025}
+}</code></pre>
+  </section>
+</main>
+<footer class="wrap">
+  <p>Website template adapted for <a href="https://github.com/SajjadPSavoji/AnyBox">AnyBox</a>.
+  Page source in <code>docs/</code>.</p>
+</footer>
+</body></html>
