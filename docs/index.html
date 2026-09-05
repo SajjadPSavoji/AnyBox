@@ -9,8 +9,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://sajjadpsavoji.github.io/AnyBox/">
 <meta name="twitter:card" content="summary_large_image">
-<!-- TODO: add docs/static/teaser.png (1200x630) for social previews, then uncomment:
-<meta property="og:image" content="https://sajjadpsavoji.github.io/AnyBox/static/teaser.png"> -->
+<meta property="og:image" content="https://sajjadpsavoji.github.io/AnyBox/static/teaser.png">
 <meta name="citation_title" content="AnyBox: Efficient Zero-Shot 9DoF Pose Estimation of Boxes for Robotic Manipulation">
 <meta name="citation_author" content="Yintao Ma">
 <meta name="citation_author" content="Sajjad Pakdamansavoji">
@@ -44,6 +43,9 @@ h1{font-size:clamp(28px,4.4vw,42px);line-height:1.18;margin:0 0 10px;letter-spac
 .authors a{color:var(--fg);text-decoration:none;border-bottom:1px solid var(--rule)}
 .authors .me{font-weight:700}
 .affil{color:var(--muted);font-size:14.5px;margin:6px 0 0}
+.notes{color:var(--muted);font-size:13px;margin:8px 0 0}
+.teaser{margin:34px 0 0}
+img{max-width:100%;height:auto;display:block;margin:0 auto;border-radius:8px}
 .btns{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:30px 0 4px}
 .btn{display:inline-flex;align-items:center;gap:7px;padding:9px 17px;border-radius:999px;
   background:var(--chip);color:var(--chipfg);text-decoration:none;font-size:14.5px;font-weight:500;
@@ -73,8 +75,9 @@ a{color:var(--accent)}
   <div class="venue">ECCV 2026 R6D Workshop</div>
   <h1>AnyBox</h1>
   <p class="sub">Efficient Zero-Shot 9DoF Pose Estimation of Boxes for Robotic Manipulation</p>
-  <p class="authors">Yintao Ma, <span class="me">Sajjad Pakdamansavoji</span>, Charles Eret, Rui Heng Yang, Xuan Zhao, Yingxue Zhang, Tongtong Cao, Amir Rasouli</p>
-  <p class="affil"><!-- TODO: replace with real affiliations -->Affiliations to be added</p>
+  <p class="authors">Yintao Ma<sup>1,*</sup>, <span class="me">Sajjad Pakdamansavoji</span><sup>1,*,†,‡</sup>, Charles Eret<sup>1,2,‡</sup>, Rui Heng Yang<sup>1</sup>, Xuan Zhao<sup>1</sup>, Yingxue Zhang<sup>1</sup>, Tongtong Cao<sup>1</sup>, Amir Rasouli<sup>1</sup></p>
+  <p class="affil">¹Huawei Technologies Canada<br>²University of Waterloo</p>
+  <p class="notes">*Equal contribution · †Corresponding author · ‡Work done while at Huawei</p>
   <div class="btns">
     <a class="btn" href="https://arxiv.org/abs/2511.15884">Paper</a>
     <a class="btn" href="https://arxiv.org/pdf/2511.15884">PDF</a>
@@ -82,6 +85,7 @@ a{color:var(--accent)}
     <a class="btn" href="https://github.com/SajjadPSavoji/AnyBox">Code</a>
     <a class="btn" href="#bibtex">BibTeX</a>
   </div>
+  <figure class="teaser"><img src="static/teaser.png" alt="AnyBox teaser"></figure>
 </div></header>
 <main class="wrap">
   <section>
@@ -91,15 +95,15 @@ a{color:var(--accent)}
   <section>
     <h2>Method</h2>
     <figure>
-      <div class="ph">Method figure &mdash; add <code>docs/static/method.png</code></div>
-      <figcaption>Overview of the approach.</figcaption>
+      <img src="static/method.png" alt="Method overview">
+      <figcaption>Overview of the proposed approach.</figcaption>
     </figure>
   </section>
   <section>
     <h2>Results</h2>
     <figure>
-      <div class="ph">Qualitative results &mdash; add <code>docs/static/results.png</code></div>
-      <figcaption>Qualitative comparison against baselines.</figcaption>
+      <img src="static/results.png" alt="Results">
+      <figcaption>Qualitative results and comparison against baselines.</figcaption>
     </figure>
   </section>
   <section id="bibtex">
