@@ -57,7 +57,7 @@ pip install -r requirements.txt
 
 ## Results
 
-<img src="docs/static/results.png" width="100%">
+<img src="docs/static/result1.png" width="100%">
 
 - Improves detection AP by up to **36 points**, more than doubling the previous best.
 - Approaches instance-level pipelines that are given ground-truth CAD models.

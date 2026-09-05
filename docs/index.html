@@ -42,6 +42,17 @@ h1{font-size:clamp(28px,4.4vw,42px);line-height:1.18;margin:0 0 10px;letter-spac
 .authors .me{font-weight:700}
 .affil{color:var(--muted);font-size:14.5px;margin:6px 0 0}
 .notes{color:var(--muted);font-size:13px;margin:8px 0 0}
+figure.fig{margin:0 0 34px}
+figure.fig:last-child{margin-bottom:0}
+.tbl-wrap{overflow-x:auto;margin:0 0 10px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{padding:9px 14px;text-align:right;border-bottom:1px solid var(--rule);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+thead th{font-weight:600;color:var(--muted);font-size:12.5px;letter-spacing:.05em;
+  text-transform:uppercase;border-bottom:1.5px solid var(--fg)}
+tbody tr:last-child td{border-bottom:1.5px solid var(--fg)}
+.tbl-title{font-weight:600;font-size:15px;margin:0 0 12px}
+.tbl-note{color:var(--muted);font-size:13.5px;margin:8px 0 30px}
 .tldr{background:var(--tldr);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;
   padding:18px 22px;margin:0;font-size:17.5px;line-height:1.6}
 ul.pts{margin:0;padding-left:22px}
@@ -91,7 +102,8 @@ a{color:var(--accent)}
     <a class="btn" href="https://github.com/SajjadPSavoji/AnyBox">Code</a>
     <a class="btn" href="#bibtex">BibTeX</a>
   </div>
-  <figure class="teaser"><img src="static/teaser.png" alt="AnyBox teaser"></figure>
+  <figure class="teaser"><img src="static/teaser.png" alt="AnyBox overview">
+    <figcaption>Overview of the AnyBox pipeline. The observed RGB–D image and a rendered RGB–D category box template are used for detection and segmentation, then passed through joint pose and scale estimation.</figcaption></figure>
 </div></header>
 <main class="wrap">
   <section>
@@ -107,19 +119,14 @@ a{color:var(--accent)}
     <ul class="pts"><li>An iterative two-stage procedure that alternates pose estimation and scale refinement, driving a binary search over box dimensions from the discrepancy between the reprojected template and the observed mask.</li><li>A depth-consistency filter that rejects pose hypotheses whose reprojected mesh disagrees with observed depth, resolving the ambiguity that box symmetry induces.</li><li>An early-stopping rule that replaces the remaining search with a single closed-form proportional scale update once rotation has converged.</li><li>Evaluation on public benchmarks and an in-house warehouse dataset, plus a downstream box-shelving task on a real robot.</li><li>Ablations isolating the contribution of scale estimation, depth filtering, and early stopping.</li></ul>
   </section>
   <section>
-    <h2>Method</h2>
-    <figure>
-      <img src="static/method.png" alt="Method overview">
-      <figcaption>Overview of the proposed approach.</figcaption>
-    </figure>
+    <h2>Approach</h2>
+    <figure class="fig"><img src="static/approach1.png" alt="The depth-consistency filter. (a) A rejected hypothesis whos"><figcaption>The depth-consistency filter. (a) A rejected hypothesis whose reprojected mesh protrudes inconsistently from the stack; (b) an accepted hypothesis consistent with observed depth.</figcaption></figure><figure class="fig"><img src="static/approach2.png" alt="The binary search process. Templates are ranked, the best ca"><figcaption>The binary search process. Templates are ranked, the best candidate is selected and passed to the scale estimation module, and the search interval is halved until convergence.</figcaption></figure><figure class="fig"><img src="static/approach3.png" alt="The early-stopping mechanism. Once rotation converges and th"><figcaption>The early-stopping mechanism. Once rotation converges and the reprojected mask aligns with the observed mask, the remaining search is replaced by a single closed-form scale update.</figcaption></figure>
   </section>
   <section>
     <h2>Results</h2>
-    <figure>
-      <img src="static/results.png" alt="Results">
-      <figcaption>Qualitative results and comparison against baselines.</figcaption>
-    </figure>
-    <ul class="pts res" style="margin-top:26px"><li>Improves detection AP by up to <strong>36 points</strong>, more than doubling the previous best.</li><li>Approaches instance-level pipelines that are given ground-truth CAD models.</li><li>Raises success on a cluttered robotic box-shelving task by <strong>28%</strong>.</li><li>Early stopping cuts runtime by more than <strong>75%</strong> with no loss in final pose accuracy.</li></ul>
+    <ul class="pts res" style="margin-bottom:34px"><li>Improves detection AP by up to <strong>36 points</strong>, more than doubling the previous best.</li><li>Approaches instance-level pipelines that are given ground-truth CAD models.</li><li>Raises success on a cluttered robotic box-shelving task by <strong>28%</strong>.</li><li>Early stopping cuts runtime by more than <strong>75%</strong> with no loss in final pose accuracy.</li></ul>
+    <p class="tbl-title">HouseCat6D — 6D pose average precision (%)</p><div class="tbl-wrap"><table><thead><tr><th>Model</th><th>IoU = 0.25</th><th>IoU = 0.50</th></tr></thead><tbody><tr><td>FS-Net</td><td>31.7</td><td>1.2</td></tr><tr><td>GPV-Pose</td><td>31.4</td><td>1.1</td></tr><tr><td>NOCS</td><td>43.3</td><td>6.5</td></tr><tr><td>VI-Net</td><td>44.8</td><td>12.7</td></tr><tr><td>SecondPose</td><td>54.5</td><td>23.7</td></tr><tr><td>AG-Pose</td><td>57.2</td><td>7.7</td></tr><tr><td><b>AnyBox (ours)</b></td><td><b>88.8</b></td><td><b>58.9</b></td></tr></tbody></table></div><p class="tbl-note">AnyBox more than doubles the best prior result at the stricter IoU = 0.50 threshold.</p>
+    <figure class="fig"><img src="static/result1.png" alt="Qualitative evaluation on the HouseCat6D dataset."><figcaption>Qualitative evaluation on the HouseCat6D dataset.</figcaption></figure><figure class="fig"><img src="static/result2.png" alt="Qualitative comparison of AnyBox against the baseline on the"><figcaption>Qualitative comparison of AnyBox against the baseline on the Warehouse6D dataset.</figcaption></figure><figure class="fig"><img src="static/result3.png" alt="Simulation environment configurations with different numbers"><figcaption>Simulation environment configurations with different numbers of distractors used in the robot experiments.</figcaption></figure><figure class="fig"><img src="static/result4.png" alt="Robotic manipulation using different pose estimation methods"><figcaption>Robotic manipulation using different pose estimation methods. The robot grasps the box successfully with AnyBox-generated poses where baselines fail.</figcaption></figure>
   </section>
   <section id="bibtex">
     <h2>BibTeX</h2>
