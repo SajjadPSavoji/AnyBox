@@ -69,11 +69,11 @@ pip install -r requirements.txt
 If you find this work useful, please cite:
 
 ```bibtex
-@article{ma2025anybox,
-  title   = {AnyBox: Efficient Zero-Shot 9DoF Pose Estimation of Boxes for Robotic Manipulation},
-  author  = {Yintao Ma and Sajjad Pakdamansavoji and Charles Eret and Rui Heng Yang and Xuan Zhao and Yingxue Zhang and Tongtong Cao and Amir Rasouli},
-  journal = {arXiv preprint arXiv:2511.15884},
-  year    = {2025}
+@inproceedings{ma2026anybox,
+  title     = {AnyBox: Efficient Zero-Shot 9DoF Pose Estimation of Boxes for Robotic Manipulation},
+  author    = {Yintao Ma and Sajjad Pakdamansavoji and Charles Eret and Rui Heng Yang and Xuan Zhao and Yingxue Zhang and Tongtong Cao and Amir Rasouli},
+  booktitle = {Proceedings of the ECCV Workshop on Recovering 6D Object Pose (R6D)},
+  year      = {2026}
 }
 ```
 
